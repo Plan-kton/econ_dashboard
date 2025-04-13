@@ -1,9 +1,13 @@
+from datetime import datetime
 import requests
 import pandas as pd
 
-def fetch_fred_data(start_date="2000-01-01", end_date="2025-01-01", api_key_path="fred_api_key.txt"):
+def fetch_fred_data(start_date="2000-01-01", end_date=None, api_key_path="fred_api_key.txt"):
     """Fetch economic indicators from the FRED API with minimal processing."""
 
+    if end_date is None:
+        end_date = datetime.today().strftime("%Y-%m-%d")
+        
     print("🚀 Fetching data from FRED API...")
 
     # Define economic indicators #################################################################
@@ -26,18 +30,20 @@ def fetch_fred_data(start_date="2000-01-01", end_date="2025-01-01", api_key_path
         "Mortgage Delinquency": ("DRSFRMACBS", "Q"),
         "Consumer Sentiment": ("UMCSENT", "M"),
         "Avg Home Price": ("CSUSHPINSA", "M"),
-        "US Grocery Sales": ("RSGCS", "M"),          
+        "Grocery Sales": ("RSGCS", "M"),          
         "CPI (Food at Home)": ("CUSR0000SAF11", "M"),
+        "CPI (Food away from Home)" : ("CUSR0000SEFV","M"),
         "Restaurant Sales": ('MRTSSM7225USN', "M"),
         "Oil Prices": ("DCOILWTICO", "D"),
         "PPI Farm Products": ("WPU01", "M"),
         "PPI Food Manufacture": ("PCU311311", "M"),
         "PPI Grocery": ("PCU445110445110", "M"),
-        "Retail Wages": ("CES4200000003", "M")
+        "Retail Wages": ("CES4200000003", "M"),
+        "US Population": ("POPTHM", "M")
     }
 
 
-    # Read API key ###################################################################
+    # Read API key -------------------------------------------------------------
     try:
         with open(api_key_path, "r") as file:
             API_KEY = file.read().strip()
@@ -87,16 +93,17 @@ def fetch_fred_data(start_date="2000-01-01", end_date="2025-01-01", api_key_path
         print("❌ No valid data retrieved. Returning an empty DataFrame.")
         return pd.DataFrame(columns=["date"] + list(series_ids.keys()))
 
-    # ✅ Merge all datasets ######################################################
+    # ✅ Merge all datasets -------------------------------------------------------
     final_df = df_list[0]
     for df in df_list[1:]:
         final_df = final_df.merge(df, on="date", how="outer")
 
     print("\n📊 Final Merged Data Preview:")
     print(final_df.head())  # Display first rows for debugging
-    return final_df
+    return final_df #the fetch_fred_data funtion returns final_df, but it is renamed df when the function is called below df = fetch_fred_data() 
 
-if __name__ == "__main__":
+# Call the function and print out a few rows of the result ----------------------------
+if __name__ == "__main__": #Ensures this block only runs when file is executed directly, which is safer and more modular
     print("🚀 Running FRED API Test...")
     df = fetch_fred_data()
 
@@ -104,6 +111,4 @@ if __name__ == "__main__":
     print(df.info())  
     print("📊 First Few Rows of Data:")
     print(df.head())  
-
-# the output is saved in fetch_fred_monthly 
 
