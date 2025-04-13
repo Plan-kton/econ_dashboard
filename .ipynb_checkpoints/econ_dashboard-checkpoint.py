@@ -10,7 +10,7 @@ st.write("Compare economic indicators over time and analyze Year-over-Year (YoY)
 
 # 📅 Year selection dropdowns ###################################################
 years = list(range(2000, 2026))
-col1, col2, _ = st.columns([1, 1, 6])
+col1, col2, _ = st.columns([2, 2, 8])
 with col1:
     start_year = st.selectbox("Start Year", years, index=0)
 with col2:
@@ -58,7 +58,7 @@ available_variables = df.columns.tolist()
 
 # 📌 Select economic indicators --------------------------------------
 st.subheader("📌 Select Two Economic Indicators for Comparison")
-col1, col2, _ = st.columns([1, 1, 6])  # Match the year dropdown layout
+col1, col2, _ = st.columns([2, 2, 8])  # Match the year dropdown layout
 with col1:
     primary_variable = st.selectbox("Primary Indicator (Left Axis)", available_variables, index=0)
 with col2:

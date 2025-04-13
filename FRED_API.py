@@ -30,16 +30,16 @@ def fetch_fred_data(start_date="2000-01-01", end_date=None, api_key_path="fred_a
         "Mortgage Delinquency": ("DRSFRMACBS", "Q"),
         "Consumer Sentiment": ("UMCSENT", "M"),
         "Avg Home Price": ("CSUSHPINSA", "M"),
-        "Grocery Sales": ("RSGCS", "M"),          
-        "CPI (Food at Home)": ("CUSR0000SAF11", "M"),
-        "CPI (Food away from Home)" : ("CUSR0000SEFV","M"),
-        "Restaurant Sales": ('MRTSSM7225USN', "M"),
         "Oil Prices": ("DCOILWTICO", "D"),
         "PPI Farm Products": ("WPU01", "M"),
         "PPI Food Manufacture": ("PCU311311", "M"),
         "PPI Grocery": ("PCU445110445110", "M"),
         "Retail Wages": ("CES4200000003", "M"),
-        "US Population": ("POPTHM", "M")
+        "US Population": ("POPTHM", "M"),
+        "CPI (Food at Home)": ("CUSR0000SAF11", "M"),
+        "CPI (Food away from Home)" : ("CUSR0000SEFV","M"),
+        "Grocery Sales": ("RSGCS", "M"), 
+        "Restaurant Sales": ('MRTSSM7225USN', "M"),
     }
 
 
