@@ -21,6 +21,5 @@ df['Restaurant Units per Capita'] = df['Restaurant Units']/df['US Population']
 df.to_csv("C:/Users/erick/OneDrive/Desktop/Python/econ_dashboard/fetch_fred_data.csv") # need forward slashes!!!
 df.to_csv("C:/Users/erick/OneDrive/Desktop/Python/cpi_fah_fcst/fetch_fred_data.csv")
 df.to_csv("C:/Users/erick/OneDrive/Desktop/Python/grocery_fcst/fetch_fred_data.csv")
-df.to_csv("C:/Users/erick/OneDrive/Desktop/Python/Grocery Forecast/FRED-API-and-Grocery-Forecast/fetch_fred_data.csv")
 
 print(f"✅ Data refreshed and saved on {datetime.datetime.now().isoformat()}")
