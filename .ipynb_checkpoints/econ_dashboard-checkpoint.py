@@ -36,7 +36,7 @@ current_month = datetime.date.today().strftime("%Y-%m")
 
 @st.cache_data
 def load_local_data():
-    return pd.read_csv("C:\Users\erick\OneDrive\Desktop\Python\econ_dashboard\fetch_fred_data.csv", index_col=0, parse_dates=True)
+    return pd.read_csv("fetch_fred_data.csv", index_col=0, parse_dates=True)
 
 df_full = load_local_data()
 
