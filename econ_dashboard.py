@@ -36,7 +36,7 @@ current_month = datetime.date.today().strftime("%Y-%m")
 
 @st.cache_data
 def load_local_data():
-    return pd.read_csv("fetch_fred_data.csv", index_col=0, parse_dates=True)
+    return pd.read_csv("C:\Users\erick\OneDrive\Desktop\Python\econ_dashboard\fetch_fred_data.csv", index_col=0, parse_dates=True)
 
 df_full = load_local_data()
 
@@ -56,7 +56,7 @@ df = df.sort_index()
 # ✅ Define available variables
 available_variables = df.columns.tolist()
 
-# 📌 Select economic indicators ################################################
+# 📌 Select economic indicators --------------------------------------
 st.subheader("📌 Select Two Economic Indicators for Comparison")
 col1, col2, _ = st.columns([1, 1, 6])  # Match the year dropdown layout
 with col1:
@@ -64,7 +64,7 @@ with col1:
 with col2:
     secondary_variable = st.selectbox("Secondary Indicator (Right Axis)", available_variables, index=1)
 
-# 📊 Prepare YoY and charts ######################################################
+# 📊 Prepare YoY and charts -------------------------------------------
 df_yoy = df.ffill().pct_change(periods=12) * 100
 
 # --- Chart 1: Absolute Values ------------------------------------------
