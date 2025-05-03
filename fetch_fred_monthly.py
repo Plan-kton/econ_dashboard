@@ -14,8 +14,6 @@ df = fetch_fred_data(start_date, end_date)
 # Create derivative variables -------------------------------------------------------
 df['Grocery Units'] = df['Grocery Sales']/df['CPI (Food at Home)']
 df['Restaurant Units'] = df['Restaurant Sales']/df['CPI (Food away from Home)']
-df['Grocery Units per Capita'] = df['Grocery Units']/df['US Population']
-df['Restaurant Units per Capita'] = df['Restaurant Units']/df['US Population']
 
 # save the csv to update the proper programs
 df.to_csv("C:/Users/erick/OneDrive/Desktop/Python/econ_dashboard/fetch_fred_data.csv") # need forward slashes!!!
