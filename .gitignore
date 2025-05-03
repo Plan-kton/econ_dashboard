@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment files
+.env
+.venv/
+*.env
+*.venv
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# VSCode and IDE settings
+.vscode/
+.idea/
+
+# Logs and outputs
+*.log
+*.out
+*.bak
+
+# Data files and pickles (optional, if you generate these)
+*.pkl
+*.h5
+*.csv
+*.zip
+
+# PyMC / Aesara cache (optional)
+aesara_cache/
