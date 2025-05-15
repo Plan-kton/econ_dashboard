@@ -34,7 +34,7 @@ def fetch_fred_data(start_date="2000-01-01", end_date=None, api_key_path="fred_a
         "PPI Farm Products": ("WPU01", "M"),
         "PPI Food Manufacture": ("PCU311311", "M"),
         "PPI Grocery": ("PCU445110445110", "M"),
-        "Retail Wages": ("CES4200000003", "M"),
+        "Import Index: Food, Feed, Bev": ("IR0", "M"),
         "US Population": ("POPTHM", "M"),
         "CPI (Food at Home)": ("CUSR0000SAF11", "M"),
         "CPI (Food away from Home)" : ("CUSR0000SEFV","M"),
