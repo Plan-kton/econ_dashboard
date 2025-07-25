@@ -16,6 +16,6 @@ df['Grocery Units'] = df['Grocery Sales']/df['CPI (Food at Home)']
 df['Restaurant Units'] = df['Restaurant Sales']/df['CPI (Food away from Home)']
 
 # save the csv to update the proper programs
-df.to_csv("C:/Users/erick/Documents/Python/econ_dashboard/fetch_fred_data.csv") # need forward slashes!!!
+df.to_csv("C:/Users/eric/Documents/Python/econ_dashboard/fetch_fred_data.csv") # need forward slashes!!!
 
 print(f"✅ Data refreshed and saved on {datetime.datetime.now().isoformat()}")
