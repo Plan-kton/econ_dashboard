@@ -29,7 +29,6 @@ Thumbs.db
 # Data files and pickles (optional, if you generate these)
 *.pkl
 *.h5
-*.csv
 *.zip
 
 # PyMC / Aesara cache (optional)
