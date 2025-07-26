@@ -1,7 +1,7 @@
 # THIS IS THE FILE THAT SHOULD BE EXECUTED TO UPDATE THE ECON DATA
 
 import datetime
-from FRED_API import fetch_fred_data
+from code.FRED_API import fetch_fred_data
 import pandas as pd
 
 # Set full range. End data pulls todays date to catch the most uptodate data
@@ -16,6 +16,6 @@ df['Grocery Units'] = df['Grocery Sales']/df['CPI (Food at Home)']
 df['Restaurant Units'] = df['Restaurant Sales']/df['CPI (Food away from Home)']
 
 # save the csv to update the proper programs
-df.to_csv("C:/Users/eric/Documents/Python/econ_dashboard/fetch_fred_data.csv") # need forward slashes!!!
+df.to_csv("C:/Users/eric/Documents/Python/econ_dashboard/output/fetch_fred_data.csv") # need forward slashes!!!
 
 print(f"✅ Data refreshed and saved on {datetime.datetime.now().isoformat()}")

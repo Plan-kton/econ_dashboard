@@ -2,7 +2,8 @@ from datetime import datetime
 import requests
 import pandas as pd
 
-def fetch_fred_data(start_date="2000-01-01", end_date=None, api_key_path="fred_api_key.txt"):
+def fetch_fred_data(start_date="2000-01-01", end_date=None, api_key_path="C:/Users/Eric/Documents/Python/econ_dashboard/code/fred_api_key.txt"):
+
     """Fetch economic indicators from the FRED API with minimal processing."""
 
     if end_date is None:
@@ -41,7 +42,6 @@ def fetch_fred_data(start_date="2000-01-01", end_date=None, api_key_path="fred_a
         "Grocery Sales": ("RSGCS", "M"), 
         "Restaurant Sales": ('MRTSSM7225USN', "M"),
     }
-
 
     # Read API key -------------------------------------------------------------
     try:

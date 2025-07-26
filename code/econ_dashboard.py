@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
-from FRED_API import fetch_fred_data  # custom module
+from code.FRED_API import fetch_fred_data  # custom module
 
 # 🎯 Streamlit app setup - Sets the page layout and header of your dashboard
 st.set_page_config(page_title="Economic Dashboard", layout="wide")
@@ -36,7 +36,7 @@ current_month = datetime.date.today().strftime("%Y-%m")
 
 @st.cache_data
 def load_local_data():
-    return pd.read_csv("fetch_fred_data.csv", index_col=0, parse_dates=True)
+    return pd.read_csv("C:/Users/eric/Documents/Python/econ_dashboard/data/fetch_fred_data.csv", index_col=0, parse_dates=True)
 
 df_full = load_local_data()
 
