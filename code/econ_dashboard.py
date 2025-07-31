@@ -37,12 +37,16 @@ current_month = datetime.date.today().strftime("%Y-%m")
 
 @st.cache_data
 def load_local_data():
-    # Go up two levels from this file: /code → /api → /econ_dashboard
+    # Resolve to the root of the repo
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
-    
-    # Now go down into /data/fetch_fred_data.csv
     data_path = os.path.join(base_dir, "data", "fetch_fred_data.csv")
-    
+
+    st.write("📁 Looking for data at:", data_path)  # Helpful for debugging
+
+    if not os.path.exists(data_path):
+        st.error(f"❌ File not found: {data_path}")
+        return pd.DataFrame()
+
     return pd.read_csv(data_path, index_col=0, parse_dates=True)
 
 df_full = load_local_data()
