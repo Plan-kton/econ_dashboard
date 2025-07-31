@@ -36,7 +36,13 @@ current_month = datetime.date.today().strftime("%Y-%m")
 
 @st.cache_data
 def load_local_data():
-    return pd.read_csv("C:/Users/eric/Documents/Python/econ_dashboard/data/fetch_fred_data.csv", index_col=0, parse_dates=True)
+    # Go up two levels from this file: /code → /api → /econ_dashboard
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+    
+    # Now go down into /data/fetch_fred_data.csv
+    data_path = os.path.join(base_dir, "data", "fetch_fred_data.csv")
+    
+    return pd.read_csv(data_path, index_col=0, parse_dates=True)
 
 df_full = load_local_data()
 
