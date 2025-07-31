@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
-from code.FRED_API import fetch_fred_data  # custom module
+from FRED_API import fetch_fred_data  # custom module
 
 # 🎯 Streamlit app setup - Sets the page layout and header of your dashboard
 st.set_page_config(page_title="Economic Dashboard", layout="wide")
