@@ -38,7 +38,7 @@ current_month = datetime.date.today().strftime("%Y-%m")
 @st.cache_data
 def load_local_data():
     # Resolve to the root of the repo
-    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     data_path = os.path.join(base_dir, "output", "fetch_fred_data.csv")
 
     st.write("📁 Looking for data at:", data_path)  # Helpful for debugging
